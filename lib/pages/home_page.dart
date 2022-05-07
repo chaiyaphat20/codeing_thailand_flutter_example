@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/controllers/profile_controller.dart';
 import 'package:flutter_app1/widgets/menu.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,78 +38,104 @@ class _HomePageState extends State<HomePage> {
                 icon: const Icon(Icons.exit_to_app_rounded))
           ],
         ),
-        body: GridView.count(
-          primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: _or == Orientation.portrait ? 2 : 3,
+        body: Column(
           children: [
-            OutlinedButton(
-              onPressed: () {
-                Get.toNamed('/about');
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.person,
-                    size: 70,
+            Expanded(
+                child: Column(
+              children: [
+                GetX<ProfileController>(
+                  init: ProfileController(),
+                  builder: (_) {
+                    return (Text("สวัสดี นาย ${_.profile['name']} "));
+                  },
+                ),
+                GetX<ProfileController>(
+                  init: ProfileController(),
+                  builder: (_) {
+                    return (Text("Role: ${_.profile['role']} "));
+                  },
+                ),
+              ],
+            )),
+            Expanded(
+              flex: 9,
+              child: GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(20),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: _or == Orientation.portrait ? 2 : 3,
+                children: [
+                  OutlinedButton(
+                    onPressed: () {
+                      Get.toNamed('/about');
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.person,
+                          size: 70,
+                        ),
+                        Text('เกี่ยวกับเรา')
+                      ],
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.purple[100])),
                   ),
-                  Text('เกี่ยวกับเรา')
+                  OutlinedButton(
+                    onPressed: () {
+                      Get.toNamed('/news');
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.newspaper,
+                          size: 70,
+                        ),
+                        Text('ข่าวสาร')
+                      ],
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.purple[100])),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.camera,
+                          size: 70,
+                        ),
+                        Text('ถ่ายรูป')
+                      ],
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.purple[100])),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.map,
+                          size: 70,
+                        ),
+                        Text('แผนที่')
+                      ],
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.purple[100])),
+                  )
                 ],
               ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.purple[100])),
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.newspaper,
-                    size: 70,
-                  ),
-                  Text('ข่าวสาร')
-                ],
-              ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.purple[100])),
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.camera,
-                    size: 70,
-                  ),
-                  Text('ถ่ายรูป')
-                ],
-              ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.purple[100])),
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.map,
-                    size: 70,
-                  ),
-                  Text('แผนที่')
-                ],
-              ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.purple[100])),
             )
           ],
         ));

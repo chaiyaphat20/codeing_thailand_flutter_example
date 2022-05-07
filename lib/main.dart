@@ -3,6 +3,7 @@ import 'package:flutter_app1/pages/about_page.dart';
 import 'package:flutter_app1/pages/detail_page.dart';
 import 'package:flutter_app1/pages/home_page.dart';
 import 'package:flutter_app1/pages/login_page.dart';
+import 'package:flutter_app1/pages/news_page.dart';
 import 'package:flutter_app1/pages/products_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -52,6 +53,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/detail',
           page: () => const DetailPage(),
+        ),
+        GetPage(
+          name: '/news',
+          page: () => const NewsPage(),
         ),
       ],
     );

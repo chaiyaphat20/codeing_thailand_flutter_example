@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/controllers/profile_controller.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -12,14 +16,21 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.purple[100],
       child: ListView(
         children: [
-          const UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/me.png'),
-              ),
-              accountName: Text('ยินดีต้อนรับคุณ Art'),
-              accountEmail: Text('Art@gmail.com')),
+          GetX<ProfileController>(
+              init: ProfileController(),
+              builder: (_) {
+                return UserAccountsDrawerHeader(
+                  currentAccountPicture: const CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/me.png'),
+                  ),
+                  accountName: Text('ยินดีต้อนรับ ${_.profile['name']}'),
+                  accountEmail:
+                      Text('${_.profile['email']} ID: ${_.profile['id']}'),
+                );
+              }),
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('หน้าหลัก'),
