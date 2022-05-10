@@ -44,6 +44,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   google_maps_flutter: ^2.1.4
   webview_flutter: ^3.0.2
+  camera: ^0.9.4+21
 
 dev_dependencies:
   flutter_test:
