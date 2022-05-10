@@ -40,6 +40,9 @@ dependencies:
   form_builder_validators: ^8.1.1  #validate form
   shared_preferences: ^2.0.13
   flutter_dotenv: ^5.0.2
+  cached_network_image: ^3.2.0
+  pull_to_refresh: ^2.0.0
+  webview_flutter: ^3.0.2
 
 dev_dependencies:
   flutter_test:

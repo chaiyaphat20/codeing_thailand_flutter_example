@@ -5,6 +5,7 @@ import 'package:flutter_app1/pages/home_page.dart';
 import 'package:flutter_app1/pages/login_page.dart';
 import 'package:flutter_app1/pages/news_page.dart';
 import 'package:flutter_app1/pages/products_page.dart';
+import 'package:flutter_app1/pages/website_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,6 +58,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/news',
           page: () => const NewsPage(),
+        ),
+        GetPage(
+          name: '/website',
+          page: () => const WebsitePage(),
         ),
       ],
     );
