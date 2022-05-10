@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/pages/about_page.dart';
+import 'package:flutter_app1/pages/camera_page.dart';
 import 'package:flutter_app1/pages/detail_page.dart';
 import 'package:flutter_app1/pages/home_page.dart';
 import 'package:flutter_app1/pages/login_page.dart';
+import 'package:flutter_app1/pages/map_page.dart';
 import 'package:flutter_app1/pages/news_page.dart';
 import 'package:flutter_app1/pages/products_page.dart';
 import 'package:flutter_app1/pages/website_page.dart';
@@ -62,6 +64,14 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/website',
           page: () => const WebsitePage(),
+        ),
+        GetPage(
+          name: '/camera',
+          page: () => const CameraPage(),
+        ),
+        GetPage(
+          name: '/map',
+          page: () => const MapPage(),
         ),
       ],
     );

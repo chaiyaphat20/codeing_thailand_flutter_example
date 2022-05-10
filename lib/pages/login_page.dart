@@ -61,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
           body: LoginBody(
                   email: fromValue['email'], password: fromValue['password'])
               .toJson());
-
       if (responseLogin.statusCode == 200) {
         //get Profile and save Shared prep
         getProfile(responseLogin);

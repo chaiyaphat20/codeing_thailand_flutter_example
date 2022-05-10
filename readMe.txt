@@ -54,3 +54,6 @@ Learning
  9.cached_network_image  https://pub.dev/packages/cached_network_image
  10. จัดการค่า null ที่ส่งมากับ api
  https://stackoverflow.com/questions/67689957/is-it-possible-to-parse-json-in-flutter-dart-with-missing-attributes-keys-of-js/67690539#67690539
+
+ 11.webview ไม่สามารถ run emu ได้   https://pub.dev/packages/webview_flutter
+ 12.google map
