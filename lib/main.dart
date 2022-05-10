@@ -7,6 +7,7 @@ import 'package:flutter_app1/pages/login_page.dart';
 import 'package:flutter_app1/pages/map_page.dart';
 import 'package:flutter_app1/pages/news_page.dart';
 import 'package:flutter_app1/pages/products_page.dart';
+import 'package:flutter_app1/pages/upload_page.dart';
 import 'package:flutter_app1/pages/website_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -68,6 +69,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/camera',
           page: () => const CameraPage(),
+        ),
+        GetPage(
+          name: '/upload',
+          page: () => const UploadPage(),
         ),
         GetPage(
           name: '/map',
