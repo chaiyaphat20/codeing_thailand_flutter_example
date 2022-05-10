@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 // import 'package:webview_flutter/webview_flutter.dart';
 
@@ -19,9 +20,9 @@ class _WebsitePageState extends State<WebsitePage> {
   void initState() {
     super.initState();
     // Enable virtual display.
-    // if (Platform.isAndroid) {
-    //   WebView.platform = AndroidWebView();
-    // }
+    if (Platform.isAndroid) {
+      WebView.platform = AndroidWebView();
+    }
     newDetail = Get.arguments;
   }
 
@@ -29,6 +30,6 @@ class _WebsitePageState extends State<WebsitePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text('${newDetail['name']}')),
-        body: Text('${newDetail['url']}'));
+        body: WebView(initialUrl: '${newDetail['url']}'));
   }
 }
