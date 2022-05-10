@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/models/news/news_body_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -120,7 +121,12 @@ class _NewsPageState extends State<NewsPage> {
         child: ListView.builder(
           itemBuilder: (ctx, index) => Card(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed('/website', arguments: {
+                  'name': articles[index].source.name,
+                  'url': articles[index].url
+                });
+              },
               child: Column(
                 children: [
                   CachedNetworkImage(
